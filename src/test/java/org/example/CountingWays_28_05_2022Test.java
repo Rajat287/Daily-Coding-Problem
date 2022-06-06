@@ -11,4 +11,5 @@ class CountingWays_28_05_2022Test {
         int N = 4;
         assertEquals(5,CountingWays(N));
     }
+
 }
