@@ -1,5 +1,7 @@
 package org.example;
-
+//Given an array of intervals (start,end) for classroom letures
+//(possibly overlaaping), find the minimum number of rooms required.
+//example: input- [[30,75],[0,50],[60,150]]   output- 2
 public class RoomsRequired07_06_2022 {
 
     static int findMinimumRoomsRequired(int[][] timings, int n){
