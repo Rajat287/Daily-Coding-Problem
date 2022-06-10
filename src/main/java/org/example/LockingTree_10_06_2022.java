@@ -1,5 +1,10 @@
 package org.example;
-
+/*Implement locking in a Binary Tree. A binary tree can be locked or unlocked only if all of its descendants or ancestors
+are not locked. Design a binary tree node class with following methods:
+# is_Locked, which returns whether the node is locked
+# lock, which attempts to lock the node. If it cannot be locked, then it should return false. Otherwise, it should lock it and return true.
+# unLock, which unlocks the node. If it cannot be unlocked, then it should return false. Otherwise, it should unlock it and retrun true.
+ */
 public class LockingTree_10_06_2022 {
     class BinaryTreeNode{
         boolean locked;
