@@ -16,6 +16,9 @@ public class LockingTree_10_06_2022 {
         BinaryTreeNode rightChild;
     }
     boolean lock(BinaryTreeNode node){
+        if(is_locked(node)){
+            return false;
+        }
         if(!checkLockPreCondition(node)){
             return false;
         }
@@ -23,6 +26,9 @@ public class LockingTree_10_06_2022 {
         return true;
     }
     boolean unLock(BinaryTreeNode node){
+        if(!is_locked(node)){
+            return false;
+        }
         if(!checkLockPreCondition(node)){
             return false;
         }
@@ -33,6 +39,7 @@ public class LockingTree_10_06_2022 {
         return node.locked;
     }
     boolean checkLockPreCondition(BinaryTreeNode node){
+        // to check for descendants...
         boolean left = checkChildLockCondition(node.leftChild);
         if(!left){
             return false;
@@ -41,11 +48,13 @@ public class LockingTree_10_06_2022 {
         if(!right){
             return false;
         }
-        while(node.parent!=null) {
-            if (node.parent.locked) {
+        //to check for ancestors...
+        BinaryTreeNode itr = node.parent;
+        while(itr!=null) {
+            if (is_locked(itr)) {
                 return false;
             }
-            node.parent = node.parent.parent;
+            itr = itr.parent;
         }
         return true;
     }
