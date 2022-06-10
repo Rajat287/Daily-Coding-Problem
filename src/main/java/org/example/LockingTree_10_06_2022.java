@@ -64,3 +64,22 @@ public class LockingTree_10_06_2022 {
         return right;
     }
 }
+
+
+/* Aravind's review : 1. When lock method is called with node 'x' to lock, you are checking if any descendant or ancestor is locked but not checking 
+                         if 'x' is already locked.
+                         
+                      2. In ChildLockPreCondition, while it is checking if node.parent is locked , it is directly swapping node.parent 
+                         with node.parent.parent which should not happen as it is overwriting 'x' parent node with it's ancestors. In this case you
+                         can use a temp node of x and perform swapping on that node's parent because the actual node won't be affected.
+                         
+                      3. When unlock method with node 'x' is called, it's not checking if 'x' is locked or not instead checking if any node in
+                         the subtree is locked which is not required. There exists only 2 cases to check here i.e., if 'x' is not locked
+                         return false as the node is already unlocked and if 'x' is locked then unlock and return true and doesn't require if any of the
+                         ancestor or descendant is locked becuase if it is locked no other ancestor or descendant should be locked as per the rule.
+                         
+                      4. Whenever you want to know if any node is locked use is_locked(node) method instead of directly contacting locked variable using 
+                         node.locked.
+                         
+                      5. Use relevant variable names and write comment lines.
+                      */
