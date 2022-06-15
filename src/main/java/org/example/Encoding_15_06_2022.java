@@ -43,8 +43,4 @@ public class Encoding_15_06_2022 {
         }
         return result.toString();
     }
-
-    public static void main(String[] args) {
-
-    }
 }
