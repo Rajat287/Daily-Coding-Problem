@@ -39,7 +39,9 @@ public class TrappingRainwater_16_06_2022 {
         return ans;
     }
 }
-
+/* 
+    Aravind's Review : Well optimized code man.
+*/
 
 // Brute force(O(n))
 /*int left_max=0,right_max=0,ans=0;
